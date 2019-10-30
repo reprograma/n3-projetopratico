@@ -2,7 +2,7 @@
 
 ### Segunda-feira 
 - [x] Apresentação do projeto;
-- [x]Setup das dependencias;
+- [x] Setup das dependencias;
 - [x] Add o arquivo .gitignore
 - [x] Organização da arquitetura
 
