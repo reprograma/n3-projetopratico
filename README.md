@@ -1,7 +1,9 @@
 # N3 - Projeto Prático 💻 :triangular_ruler:
 
 ### Segunda-feira 
-Apresentação do projeto
+[x] Apresentação do projeto;
+[x]Setup das dependencias;
+[x] Organização da arquitetura
 
 
 ### Terça-feira
