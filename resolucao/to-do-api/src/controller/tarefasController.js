@@ -28,5 +28,40 @@ const getConcluidos = (req, res) => {
   );
 };
 
-module.exports = { getAll, getById, getByNomeColaborador, getConcluidos }
+
+const conversorData = (dataString) => {
+  const dia = dataString.split("/")[0]
+  const mes = dataString.split("/")[1] - 1
+  const ano = dataString.split("/")[2]
+
+  const dataFormatada = new Date(ano, mes, dia)
+  return dataFormatada
+}
+
+const diferencaDias = (dataInicial, dataFinal) => {
+  const diferencaTempo = Math.abs(dataFinal - dataInicial)
+  const diferencaDias = Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24))
+  return diferencaDias
+}
+
+
+const getTempoTarefa = (request, response) => {
+  tarefas.forEach(tarefa => {
+    console.log(tarefa)
+    tarefa.tempoDecorrido = diferencaDias(
+                              conversorData(tarefa.dataInclusao),
+                              conversorData(tarefa.dataConclusao)
+    )
+  })
+  
+  response.status(200).send(tarefas)
+}
+
+module.exports = {
+  getAll,
+  getById,
+  getByNomeColaborador,
+  getConcluidos,
+  getTempoTarefa
+}
 
